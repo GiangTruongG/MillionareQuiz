@@ -1,0 +1,18 @@
+table{
+    background-color: rgba(255, 255, 255, 0.87);
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+table tbody td{
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Lobster', cursive;
+}
+th{
+    font-family: 'Lobster', cursive;
+    padding-bottom: 5px;
+    font-size: 25px;
+    text-align: center;
+}

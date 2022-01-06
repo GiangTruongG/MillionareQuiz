@@ -1,0 +1,55 @@
+table{
+    background-color: rgba(255, 255, 255, 0.87);
+    margin: 0 auto;
+    width: 650px;
+    height: 430px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+thead{
+  font-size: 24px;
+  height: 50px;
+}
+td{
+  height: 50px;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+.rank-icon{
+  width: 20%;
+}
+.rank-icon img{
+  height: 100%;
+}
+.rank-name{
+  /* width: 40%; */
+  font-family: 'Architects Daughter', cursive;
+  font-size: 21px;
+  font-weight: 550;
+}
+.rank-point-time{
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+}
+.rank-point-time img{
+  height: 40%;
+}
+/* .rank-name{
+    font-family: 'Architects Daughter', cursive;
+    padding-left: 10px;
+    padding-top: 15px;
+    font-size: 20px;
+    font-weight: 500;
+} */
+  /* .point{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .point img{
+    height: 25px;
+    width: 35px;
+    padding-left: 5px;
+  } */

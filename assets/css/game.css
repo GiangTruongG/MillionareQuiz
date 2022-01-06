@@ -1,0 +1,289 @@
+
+.container {
+    display: flex;
+    background-image: url('../img/point-coins.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    flex-direction: row;
+    display: none;
+    padding: 15px;
+    position: relative;
+}
+
+.left-side {
+    width: 15%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: rgba(32, 29, 192, 0.336);
+}
+.left-side::after{
+    content: "";
+    position: absolute;
+    height: 0%;
+    width: 2px;
+    left: 0;
+    bottom: 0;
+    background-color: rgb(89, 45, 161);
+    animation: runYup 3.8s ease infinite;
+    transform-origin: bottom;
+}
+.left-side::before{
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0%;
+    background-color: rgb(89, 45, 161);
+    animation: runXright 3.2s ease infinite;
+    transform-origin: left;
+    top: 0;
+    left: 0;
+}
+.decorate-right{
+    content: "";
+    position: absolute;
+    background-color: rgb(89, 45, 161);
+    top: 0;
+    right: 0;
+    height: 0;
+    width: 2px;
+    transform-origin: top;
+    animation: runYup 3.8s ease infinite;
+}
+.decorate-bottom{
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0%;
+    background-color: rgb(89, 45, 161);
+    animation: runXright 3.2s ease infinite;
+    transform-origin: right;
+    bottom: 0;
+    right: 0;
+}
+@keyframes runYup {
+    0%{
+        height: 0;
+    }
+    50%{
+        height: 100%;
+    }
+    to{
+        height: 0;
+    }
+}
+@keyframes runXright {
+    0%{
+        width: 0;
+    }
+    50%{
+        width: 100%;
+    }
+    100%{
+        width: 0;
+    }
+}
+.left-side > p {
+    width: 120px;
+    padding: 10px;
+    margin: 6px;
+    border: 1px solid rgb(255, 102, 0);
+    border-radius: 35%;
+    text-align: center;
+    background-image: linear-gradient(to right, rgb(241, 241, 32), rgb(243, 155, 23));
+}
+
+.center-game {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.center-game > .top {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-game > .top > img {
+    width: 150px;
+}
+
+.center-game > .question-section {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-game > .question-section > div {
+    width: 800px;
+    height: 150px;
+    /* border: 2px solid rgb(255, 102, 0); */
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom, rgb(132 153 201), rgb(243, 155, 23));
+    box-shadow: 6px 6px 17px 2px #595276;
+}
+
+.center-game > .question-section > div > p {
+    font-size: 25px;
+    text-align: center;
+}
+
+.center-game > .answer-section {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-game > .answer-section > .answer-container {
+    width: 800px;
+    height: 200px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+.center-game > .answer-section > .answer-container > p {
+    /* border: 2px solid rgb(255, 102, 0); */
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 30px;
+    background-image: linear-gradient(to bottom, rgb(132 153 201), rgb(243, 228, 14));
+    box-shadow: 6px 6px 17px 2px #595276;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.center-game > .answer-section > .answer-container > p:hover {
+    opacity: 0.6;
+}
+
+.right-side {
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-side > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid rgb(255, 102, 0); */
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    background-image: linear-gradient(to right, rgb(241, 241, 32), rgb(243, 155, 23));
+    animation: scale 2s ease infinite;
+    position: relative;
+}
+.right-side > div::before{
+    content: "";
+    height: 100%;
+    width: 100%;
+    border-top: 3px solid rgb(8, 42, 109);
+    position: absolute;
+    border-radius: 50%;
+    animation: rotate 1s ease infinite;
+    transform: rotate(0);
+    transition: all 1.5s ease;
+}
+@keyframes rotate {
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@keyframes scale {
+    0%{
+        transform: scale(1.05);
+    }
+    50%{
+        transform: scale(1.1);
+        background-image: linear-gradient(to bottom, rgb(132 153 201), rgb(243, 155, 23));
+    }
+    100%{
+        transform: scale(1.05);
+    }
+}
+.right-side > div > p {
+    font-size: 30px;
+}
+
+.container > .game-modal {
+    border: 1px solid rgb(255, 102, 0);
+    border-radius: 10px;
+    background-image: linear-gradient(to right, rgb(241, 241, 32), rgb(243, 155, 23));
+    text-align: center;
+    font-size: 30px;
+    padding: 20px;
+    width: 500px;
+    z-index: 3;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: none;
+}
+
+.container > .game-modal > .game-modal-container {
+   position: relative;
+}
+
+.container > .game-modal > .game-modal-container > .close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#start-btn {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(1);
+    padding: 30px;
+    border: 3px solid rgb(255, 102, 0);
+    border-radius: 10px;
+    background-image: linear-gradient(to right, rgb(9, 71, 185), rgb(243, 155, 23));
+    width: 300px;
+    height: 100px;
+    font-size: 30px;
+    cursor: pointer;
+}
+#start-btn:hover{
+    color: white;
+}
+
+.back-btn{
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    height: 50px;
+    width: 50px;
+    transform: rotate(-50deg);
+    cursor: pointer;
+}
+.back-btn:hover img{
+    transform: scale(1.1)
+}
+.back-btn img{
+    width: 100%;
+}

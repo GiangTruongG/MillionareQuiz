@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+   <meta charset="utf-8">
+   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+   <link rel="stylesheet" href="./assets/css/quizz.css">
+   <link rel="stylesheet" href="./assets/css/history.css">
+   <link rel="stylesheet" href="./assets/css/game.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <title>Quizz</title>
+</head>
+<body>
+   <div id="main-screen">
+      <header>
+         <!-- <div id="loginName" class="logo"><i class="fas fa-user-circle"></i><span></span></div> -->
+         <nav class="navbar">
+            <ul>
+               <div id="loginName" class="logo"><i class="fas fa-user-circle"></i><span></span></div>
+               <li id="maxLevel"> <i class="fas fa-award"></i><span>Điểm cao nhất:</span></li>
+               <li id="history-btn"><i class="fas fa-history"></i>Lịch sử</li>
+            </ul>
+         </nav>
+         <div class="rank">
+            <img id="show-rank" src="./assets/img/imgRank.png" alt="">
+         </div>
+      </header>
+      <section class="icon">
+         <div class="millionair">
+            <img src="./assets/img/logo.png" alt="">
+         </div>
+      </section>
+      <div class="center">
+         <button id="show-quizz">CHƠI NGAY</button>
+      </div>
+      <button class="logout-btn">Đăng xuất</button>
+      <div class="wrapper">
+         <div class="close-btn">&times;</div>
+         <div class="title-text">
+            <div class="title login">
+               Login
+            </div>
+            <div class="title signup">
+               Signup
+            </div>
+         </div>
+         <div class="form-container">
+            <div class="slide-controls">
+               <input type="radio" name="slide" id="login" checked>
+               <input type="radio" name="slide" id="signup">
+               <label for="login" class="slide login">Login</label>
+               <label for="signup" class="slide signup">Signup</label>
+               <div class="slider-tab"></div>
+            </div>
+            <span class="message" id="signup-success-message">Đăng kí thành công!</span>
+            <span class="message" id="signup-error-message">Tên đăng nhập đã tồn tại!</span>
+            <span class="message" id="login-error-message">Tên đăng nhập hoặc mật khẩu không hợp lệ!</span>
+            <span class="message" id="cf-error-message">Mật khẩu không trùng nhau! </span>
+            <span class="message" id="length-error-message">ID, Mật khẩu phải lớn hơn 6 kí tự! </span>
+            <div class="form-inner">
+               <form action="#" id="login-form" class="login" autocomplete="off">
+                  <div class="field">
+                     <input name="loginid" type="text" id="id" placeholder="Nhập ID">
+                  </div>
+                  <div class="field">
+                     <input name="loginpassword" type="password" id="login-password" placeholder="Password">
+                  </div>
+                  <div class="pass-link">
+                     <a href="#">Forgot password?</a>
+                  </div>
+                  <div class="field btn">
+                     <div class="btn-layer"></div>
+                     <input type="submit" value="Login">
+                  </div>
+                  <div class="signup-link">
+                     Not a member? <a href="">Signup now</a>
+                  </div>
+               </form>
+               <form action="#" class="signup" autocomplete="off">
+                  <div class="field">
+                     <input name="username" type="text" id="username" placeholder="Nhập ID">
+                  </div>
+                  <div class="field">
+                     <input name="gamename" type="text" id="gamename" placeholder="Nhập tên trong Game">
+                  </div>
+                  <div class="field">
+                     <input name="signup-password" type="password" id="signup-password" placeholder="Password">
+                  </div>
+                  <div class="field">
+                     <input name="cfpassword" type="password" id="cfpassword" placeholder="Confirm password">
+                  </div>
+                  <div class="field btn">
+                     <div class="btn-layer"></div>
+                     <input id="signup-btn" type="submit" value="Signup">
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+      <section class="modal">
+         <div class="modal-content">
+             <span class="close">&times;</span>
+                 <h1>Bảng xếp hạng <img style="height: 40px" src="https://img.icons8.com/external-vitaliy-gorbachev-blue-vitaly-gorbachev/60/000000/external-cup-award-vitaliy-gorbachev-blue-vitaly-gorbachev-2.png"/></h1>
+                 <table-rank></table-rank>
+         </div>
+     </section>
+     <section class="history">
+         <div class="history-content">
+            <span class="close close-history">&times;</span>
+            <h1>Lịch sử chơi game
+               <img style="height: 40px" src="https://img.icons8.com/external-vitaliy-gorbachev-blue-vitaly-gorbachev/60/000000/external-cup-award-vitaliy-gorbachev-blue-vitaly-gorbachev-2.png"/></h1>
+            <div class="history-grap">
+               <history-table></history-table>
+            </div>
+         </div>
+      </section>
+      <section id="not-signin-message">
+         <div id="close-popup">&times;</div>
+         <div class="popup-content">Bạn chưa đăng nhập! <br>Click CHƠI NGAY để đăng nhập.</div>
+      </section>
+   </div>
+   <div class="container" id="game-screen">
+      <div class="left-side">
+          <p class="question-numbers">1 - 200</p>
+          <p class="question-numbers">2 - 400</p>
+          <p class="question-numbers">3 - 600</p>
+          <p class="question-numbers">4 - 1000</p>
+          <p class="question-numbers">5 - 2000</p>
+          <p class="question-numbers">6 - 3000</p>
+          <p class="question-numbers">7 - 6000</p>
+          <p class="question-numbers">8 - 10000</p>
+          <p class="question-numbers">9 - 14000</p>
+          <p class="question-numbers">10 - 22000</p>
+          <div class="decorate-right"></div>
+          <div class="decorate-bottom"></div>
+      </div>
+      <div class="center-game">
+          <div class="top">
+              <img src="./assets/img/logo.png">
+          </div>
+          <div class="question-section">
+              <div>
+                  <p id="question"></p>
+              </div>
+          </div>
+          <div class="answer-section">
+              <div class="answer-container">
+                  <p class="answers"></p>
+                  <p class="answers"></p>
+                  <p class="answers"></p>
+                  <p class="answers"></p>
+              </div>
+          </div>
+          <button id="start-btn">Start!</button>
+      </div>
+      <div class="right-side">
+          <div>
+              <p id="countdown-timer">15</p>
+          </div>
+      </div>
+      <div id="lose-modal" class="game-modal">
+          <div class="game-modal-container">
+              <span id="close-btn" class="close-btn">&times;</span>
+              <div class="game-modal-content">
+                  <p>You just lost the game!</p>
+              </div>
+          </div>
+      </div>
+      <div id="win-modal" class="game-modal">
+          <div class="game-modal-container">
+              <span id="close-btn" class="close-btn">&times;</span>
+              <div class="game-modal-content">
+                  <p>You won the game!</p>
+              </div>
+          </div>
+      </div>
+      <div class="back-btn">
+         <img src="./assets/img/back-btn.png" alt="hinhanh">
+      </div>
+  </div>
+   <script>
+      const firebaseConfig = {
+         apiKey: "AIzaSyDu6g8JpxEIpR8652yXkGaMHuGKSBJmt98",
+         authDomain: "wallet-b8582.firebaseapp.com",
+         projectId: "wallet-b8582",
+         storageBucket: "wallet-b8582.appspot.com",
+         messagingSenderId: "455926682447",
+         appId: "1:455926682447:web:42cae4cc4366e38c04eb3a"
+      };
+      // initiallize firebase
+      firebase.initializeApp(firebaseConfig)
+      const db = firebase.firestore()
+   </script>
+   <script type="module" src="./assets/js/quizz.js"></script>
+   <script src="./assets/js/signIn.js"></script>
+   <script src="./assets/js/signUp.js"></script>
+   <script type="module" src="./assets/js/history.js"></script>
+   <script type="module" src="./assets/js/rank.js"></script>
+   <script src="./assets/js/app.js"></script>
+</body>
+
+</html>

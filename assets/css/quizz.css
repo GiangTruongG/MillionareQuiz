@@ -1,0 +1,535 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap,https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+html,body{
+  width: 100vw;
+  height: 100vh;
+  place-items: center;
+  background-image: url("../img/anhbia.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#main-screen{
+  padding: 16px;
+}
+
+header{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  top: 30px;
+}
+
+header .logo{
+  font-family: 'Architects Daughter', cursive;
+  color: #000;
+  font-weight: 550;
+  font-size: 2rem;
+  text-transform: uppercase;
+  background-color: #ffe57e;
+  border: 3px solid #fff;
+  box-shadow: 3px 4px 4px #f39c12;
+  border-radius: 10px;
+  padding: 10px;
+}
+header .rank{
+  height: 78px;
+  cursor: pointer;
+  background-color: #FEE140;
+  background-image: linear-gradient( 
+90deg, #f1c40f 10%, #f39c12 100%);
+  border: 2px solid;
+  border-radius: 15px;
+  padding: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.rank::after {
+  position: absolute;
+  background-color: white;
+  opacity: 0.4;
+  width: 300%;
+  height: 100%;
+  top: -100px;
+  left: -50px;
+  content: "";
+  transform: rotate(45deg);
+  transition: all 0.8s ease;
+}
+.rank:hover::after{
+  top: 170px;
+  left: -210px;
+}
+header .rank img{
+  width: 100%;
+  height: 100%;
+}
+header .logo .fas{
+  padding-right: 30px;
+  color: linear-gradient(90deg, #FEE140 0%, #FA709A 100%);
+}
+
+header .navbar ul{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+
+header .navbar ul li{
+  font-family: 'Lobster', cursive;
+  margin:0 2rem;
+  font-size: 1.5rem;
+  background-color: #FEE140;
+  background-image: linear-gradient(90deg, #f1c40f 10%, #f39c12 100%);
+  border: 2px solid ;
+  border-radius: 15px;
+  padding: 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+header .navbar ul li::after{
+  position: absolute;
+  background-color: white;
+  opacity: 0.4;
+  width: 300%;
+  height: 100%;
+  top: -100px;
+  left: -50px;
+  content: "";
+  transform: rotate(45deg);
+  transition: all 0.8s ease;
+}
+header .navbar ul li:hover::after{
+  top: 250px;
+  left: -100px
+}
+#maxLevel::after{
+  width: 200%;
+  top: -90px;
+  left: 10px;
+}
+#maxLevel{
+  cursor: unset;
+}
+#maxLevel:hover::after{
+  left: -500px;
+}
+header .navbar ul li:last-child{
+  margin-left: 0;
+}
+header .navbar ul li .fas{
+  font-size: 2 rem;
+  color: #000;
+  padding-right: 10px;
+}
+header .navbar ul li a{
+  font-size: 1.5rem;
+  color:#000;
+  text-decoration: none;
+}
+
+header .navbar ul li a:hover{
+  color:#fff;
+}
+
+.icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+.millionair{
+  margin-bottom: 50px;
+}
+.millionair img{
+  width: 350px;
+  height: 350px;
+}
+
+.center {
+  position:absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.center button {
+  width: 350px;
+  height: 80px;
+  line-height: 78px;
+  font-size: 40px;
+  font-weight: 700;
+  font-family: 'Mochiy Pop P One', sans-serif;
+  background-color: #6692f3;
+  background-image: linear-gradient(100deg, #ebaf2e 20%, #87adfe 100%);
+  border: 0;
+  color: #000;
+  border-radius: 50px;
+  letter-spacing: 3px;
+  box-shadow: 6px 0px 0px #FEBA29;
+  outline: transparent;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.center button:hover{
+ transform: scaleX(1.2) scaleY(1.2);
+}
+
+.wrapper{
+  overflow: hidden;
+  max-width: 390px; 
+  position: absolute ;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  height: 550px;
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 30px;
+  box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+  transition:top 0ms ease-in-out 200ms,
+             opacity 200ms ease-in-out 0ms,
+             transform 200ms ease-in-out 0ms;
+  display: none;
+}
+.wrapper.active {
+  display: block;
+}
+.wrapper .close-btn {
+  width: 30px;
+  position:absolute ;
+  right: 20px;
+  background: #FE830A;
+  color: #FFFEFF;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+.wrapper .title-text{
+  display: flex;
+  width: 200%;
+}
+.wrapper .title{
+  width: 50%;
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+.wrapper .slide-controls{
+  position: relative;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  overflow: hidden;
+  margin: 30px 0 10px 0;
+  justify-content: space-between;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+.slide-controls .slide{
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 48px;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.6s ease;
+}
+.slide-controls label.signup{
+  color: #000;
+}
+.slide-controls .slider-tab{
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  left: 0;
+  z-index: 0;
+  border-radius: 5px;
+  background: -webkit-linear-gradient(left, #FEBA29, #FF820A);
+  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+input[type="radio"]{
+  display: none;
+}
+#signup:checked ~ .slider-tab{
+  left: 50%;
+}
+#signup:checked ~ label.signup{
+  color: #fff;
+  cursor: default;
+  user-select: none;
+}
+#signup:checked ~ label.login{
+  color: #000;
+}
+#login:checked ~ label.signup{
+  color: #000;
+}
+#login:checked ~ label.login{
+  cursor: default;
+  user-select: none;
+}
+.wrapper .form-container{
+  width: 100%;
+  overflow: hidden;
+}
+.form-container .form-inner{
+  display: flex;
+  width: 200%;
+}
+.form-container .form-inner form{
+  width: 50%;
+  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+.form-inner form .field{
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+}
+.form-inner form .field input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding-left: 15px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  border-bottom-width: 2px;
+  font-size: 17px;
+  transition: all 0.3s ease;
+}
+.form-inner form .field input:focus{
+  border-color: #fce683;
+  /* box-shadow: inset 0 0 3px #fb6aae; */
+}
+.form-inner form .field input::placeholder{
+  color: #999;
+  transition: all 0.3s ease;
+}
+form .field input:focus::placeholder{
+  color: #b3b3b3;
+}
+.form-inner form .pass-link{
+  margin-top: 5px;
+}
+.form-inner form .signup-link{
+  text-align: center;
+  margin-top: 30px;
+}
+.form-inner form .pass-link a,
+.form-inner form .signup-link a{
+  color: #FE830A;
+
+  text-decoration: none;
+}
+.form-inner form .pass-link a:hover,
+.form-inner form .signup-link a:hover{
+  text-decoration: underline;
+}
+form .btn{
+  height: 50px;
+  width: 100%;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+form .btn .btn-layer{
+  height: 100%;
+  width: 300%;
+  position: absolute;
+  left: -100%;
+  background: -webkit-linear-gradient(right, #FEBA29, #FE830A, #FEBA29, #FE830A);
+  border-radius: 5px;
+  transition: all 0.4s ease;;
+}
+form .btn:hover .btn-layer{
+  left: 0;
+}
+form .btn input[type="submit"]{
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  position: relative;
+  background: none;
+  border: none;
+  color: #fff;
+  padding-left: 0;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.modal{
+  position: absolute;
+  display: none;
+  top: 50%;left: 50%;
+  max-width: 700px;
+  transform: translate(-50%,-50%);
+  overflow: unset;
+}
+
+.modal.active{
+  display: block;
+}
+.modal-content{
+  background-color: rgb(255, 204, 102);;
+  min-width: 700px;
+  height: 550px;
+  position: relative;
+  border-radius: 15px;
+}
+.modal-content span.close{
+  position: absolute;
+  margin-left: 650px;
+  font-size: 50px;
+  font-weight: 800;
+}
+.modal-content span.close:hover,
+.modal-content span.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+
+h1{
+  font-family: 'Mochiy Pop P One', sans-serif;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  text-align: center;
+  font-size: 35px;
+}
+table{
+  background-color: rgba(255, 255, 255, 0.87);
+  margin: 0 auto;
+  width: 650px;
+  height: 400px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+
+th{
+  font-family: 'Lobster', cursive;
+  padding-bottom: 5px;
+  font-size: 25px;
+  text-align: center;
+}
+
+
+/* btn - logout */
+.logout-btn {
+  position: absolute;
+  right: 20px;
+  font-family: Lobster, cursive;
+  font-size: 1.5rem;
+  background-color: rgb(254, 225, 64);
+  background-image: linear-gradient(
+90deg, rgb(241, 196, 15) 10%, rgb(243, 156, 18) 100%);
+  border: 2px solid;
+  border-radius: 15px;
+  padding: 20px;
+  display: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+.logout-btn::after{
+  position: absolute;
+  background-color: white;
+  opacity: 0.4;
+  width: 300%;
+  height: 100%;
+  top: -100px;
+  left: -50px;
+  content: "";
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+}
+.logout-btn:hover::after{
+  top: 250px;
+  left: -100px
+}
+
+.message {
+  display: none;
+  font-size:14px ;
+  
+}
+#signup-success-message {
+  color: rgb(20, 192, 20);
+}
+#signup-error-message,
+#login-error-message,
+#cf-error-message,
+#length-error-message {
+  color: red;
+}
+
+
+/* popup massage */
+#not-signin-message{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: popup 0.2s ease;
+  display: none;
+}
+@keyframes popup {
+  0% {
+    transform: translate(-48%, -50%)
+  }
+  25% {
+    transform: translate(-52%, -50%)
+  }
+  50% {
+    transform: translate(-48%, -50%)
+  }
+  75% {
+    transform: translate(-52%, -50%)
+  }
+  to{
+    transform: translate(-50%, -50%)
+  }
+}
+#not-signin-message .popup-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 200px;
+  background-color: #fce683;
+  font-size: 1.6rem;
+  border-radius: 10px;
+  border: 2px solid;
+  margin: 0 auto;
+  text-align: center;
+}
+#close-popup{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 3rem;
+  line-height: 0.5;
+  cursor: pointer;
+}
+#close-popup:hover{
+  color: red;
+}
